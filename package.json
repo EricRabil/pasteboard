@@ -1,0 +1,34 @@
+{
+    "name": "pasteboard-services",
+    "private": true,
+    "scripts": {
+        "client": "yarn workspace @pasteboard/client",
+        "server": "yarn workspace @pasteboard/server",
+        "core": "yarn workspace @pasteboard/core",
+        "gdep": "yarn scripts/global-dependency.ts",
+        "build": "tsc -b typescript/tsconfig-everything.json",
+        "build:l": "tsc -b typescript/tsconfig-local.json",
+        "watch": "yarn build --watch",
+        "watch:l": "yarn build:l --watch"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "packageManager": "yarn@3.1.1",
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/inquirer": "^8.1.3",
+        "@types/node": "^17",
+        "@types/yargs": "^17.0.7",
+        "fs-extra": "^10.0.0",
+        "inquirer": "^8.2.0",
+        "ts-node": "^10.4.0",
+        "ttypescript": "^1.5.13",
+        "typescript": "^4.5.2",
+        "typescript-transform-paths": "^3.3.1",
+        "yargs": "^17.3.0"
+    },
+    "dependencies": {
+        "tslib": "latest"
+    }
+}

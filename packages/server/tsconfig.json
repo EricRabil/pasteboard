@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig-base.json",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "sourceRoot": "./src",
+        "outDir": "./build",
+        "declarationDir": "./types",
+        "tsBuildInfoFile": "./.typescript"
+    },
+    "references": [
+        { "path": "../core" },
+        { "path": "../redis" }
+    ]
+}

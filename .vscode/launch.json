@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "name": "redis-tests",
+            "request": "launch",
+            "runtimeExecutable": "yarn",
+            "runtimeArgs": ["run", "--inspect-brk", "jest", "--runInBand"],
+            "cwd": "${workspaceFolder}/packages/redis",
+            "console": "integratedTerminal",
+            "env": {
+                "DEBUG": "ioredis:*,pasteboard:*"
+            },
+            "internalConsoleOptions": "neverOpen",
+            "disableOptimisticBPs": true
+        }
+    ]
+}

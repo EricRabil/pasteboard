@@ -1,0 +1,62 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: 'postgres'
+    image: 'postgres:14.1'
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data/'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: spotify
+      POSTGRES_PASSWORD: spotify
+      POSTGRES_DB: spotify
+  redis:
+    container_name: 'redis'
+    image: 'redisfab/rejson:master-arm64v8-bionic'
+    ports:
+      - 6739:6739
+    volumes:
+      - 'redisdata:/data'
+  server:
+    container_name: 'server'
+    build: .
+    ports:
+      - 9999:9999
+    expose:
+      - 9999
+    command:
+      - yarn
+      - node
+      - /app/packages/server/build/index.js
+    environment:
+      REDIS_URL: redis://redis
+    depends_on:
+      - redis
+  spotify:
+    container_name: 'spotify'
+    build: .
+    environment:
+      TYPEORM_CONNECTION: postgres
+      TYPEORM_HOST: postgres
+      TYPEORM_USERNAME: spotify
+      TYPEORM_PASSWORD: spotify
+      TYPEORM_DATABASE: spotify
+      TYPEORM_SYNCHRONIZE: true
+      TYPEORM_ENTITIES: build/SpotifyTrackCache.js
+      REDIS_URL: redis://redis
+      DEBUG: sactivity,pasteboard:*
+    env_file: packages/spotify/.env.docker
+    working_dir: /app/packages/spotify
+    command:
+      - yarn
+      - node
+      - build/index.js
+    depends_on:
+      - redis
+      - postgres
+
+volumes:
+  pgdata:
+  redisdata:

@@ -1,0 +1,10 @@
+{
+    "extends": "../tsconfig-base.json",
+    "references": [
+        { "path": "../packages/core" },
+        { "path": "../packages/client" },
+        { "path": "../packages/server" },
+        { "path": "../packages/redis" },
+        { "path": "../packages/spotify" }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "extends": "../../tsconfig-base.json",
+    "compilerOptions": {
+        "sourceRoot": "./src",
+        "outDir": "./build",
+        "declarationDir": "./types",
+        "rootDir": "./src",
+        "tsBuildInfoFile": "./.typescript",
+        "paths": {
+            "@pasteboard/core": ["../core/src"]
+        },
+    },
+    "references": [
+        { "path": "../core" }
+    ]
+}
