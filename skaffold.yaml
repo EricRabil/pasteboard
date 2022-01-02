@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+build:
+  artifacts:
+  - image: ericrabil/pasteboard
+    context: .
+    sync:
+      manual:
+        - src: packages/**/*
+          dest: /app/
+  local:
+    push: false
+    useBuildkit: true
+  tagPolicy:
+    customTemplate:
+      template: "latest"
+deploy:
+  kustomize: {}
