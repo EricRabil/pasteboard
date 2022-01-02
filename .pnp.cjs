@@ -1287,6 +1287,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pasteboard/core", "workspace:packages/core"],
             ["@pasteboard/redis", "workspace:packages/redis"],
             ["@types/body-parser", "npm:1.19.2"],
+            ["@types/cors", "npm:2.8.12"],
             ["@types/debug", "npm:4.1.7"],
             ["@types/express", "npm:4.17.13"],
             ["@types/express-ws", "npm:3.0.1"],
@@ -1295,6 +1296,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jsonpath", "npm:0.2.0"],
             ["@types/node", "npm:17.0.4"],
             ["body-parser", "npm:1.19.1"],
+            ["cors", "npm:2.8.5"],
             ["debug", "virtual:438eca98ee9c8d2ac7463f84f071f0e3ceaeb1763886373ebd4c7e6fc9c05dd2b4221427d2757cd00e2cb7048c6a259d824eba20f83f80f9f05aa24fa75eb6ac#npm:4.3.3"],
             ["express", "npm:4.17.2"],
             ["express-ws", "virtual:38148a9aa3810bcd0016148463be18d2f5bed57cb26d94320e261b43017ad9efd4487f7b80e3ca08035e2049d4892c05d10d62906fb766d24da3b197cb0e75d9#npm:5.0.2"],
@@ -1327,7 +1329,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jasmine", "npm:3.10.0"],
             ["jest", "virtual:438eca98ee9c8d2ac7463f84f071f0e3ceaeb1763886373ebd4c7e6fc9c05dd2b4221427d2757cd00e2cb7048c6a259d824eba20f83f80f9f05aa24fa75eb6ac#npm:27.4.5"],
             ["pg", "virtual:d7d316f776ac0e89d9cdaca5f8bae6cd90929a0ee5248fe40f9158a1fad4d6effcdc06ffe0a7fc016c051d4cf48166d6d3dd9dc920085247348872f1b2a5eede#npm:8.7.1"],
-            ["sactivity", "npm:2.0.0"],
+            ["sactivity", "npm:2.0.1-beta"],
             ["ts-jest", "virtual:438eca98ee9c8d2ac7463f84f071f0e3ceaeb1763886373ebd4c7e6fc9c05dd2b4221427d2757cd00e2cb7048c6a259d824eba20f83f80f9f05aa24fa75eb6ac#npm:27.1.2"],
             ["ts-node", "virtual:738943245f8319b11f1b1162f7e7270a8f2b3014b9af8fa9fb1ecc10358a9af3f599f7b9f037789908a32a6f1961a6dd22c9b8c3e8087a851e5a5497a79f99a0#npm:10.4.0"],
             ["tslib", "npm:2.3.1"],
@@ -1507,6 +1509,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/connect", "npm:3.4.35"],
             ["@types/node", "npm:17.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/cors", [
+        ["npm:2.8.12", {
+          "packageLocation": "./.yarn/cache/@types-cors-npm-2.8.12-ff52e8e514-8c45f112c7.zip/node_modules/@types/cors/",
+          "packageDependencies": [
+            ["@types/cors", "npm:2.8.12"]
           ],
           "linkType": "HARD",
         }]
@@ -2832,6 +2843,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/core-util-is-npm-1.0.3-ca74b76c90-9de8597363.zip/node_modules/core-util-is/",
           "packageDependencies": [
             ["core-util-is", "npm:1.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["cors", [
+        ["npm:2.8.5", {
+          "packageLocation": "./.yarn/cache/cors-npm-2.8.5-c9935a2d12-ced838404c.zip/node_modules/cors/",
+          "packageDependencies": [
+            ["cors", "npm:2.8.5"],
+            ["object-assign", "npm:4.1.1"],
+            ["vary", "npm:1.1.2"]
           ],
           "linkType": "HARD",
         }]
@@ -4240,10 +4262,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:0f8193fe2c18d70f22909316967473dfe9d7cab38db7666f7649368bc251f2ec7919db14046f84bccc420d6e81eb8d0b5fed810cf4f28842b35709cd568f2ab1#npm:4.0.1", {
-          "packageLocation": "./.yarn/__virtual__/isomorphic-ws-virtual-4f7b9b4530/0/cache/isomorphic-ws-npm-4.0.1-aa39192848-d7190eadef.zip/node_modules/isomorphic-ws/",
+        ["virtual:5e558dfbdc3945496020d12ba2d8080b29c3b172d59bd38bc9cb34ba3075b5e6ba6c5d720c3004719fc2a4abede81f164bdbb4a721c143ae39935c07338dc723#npm:4.0.1", {
+          "packageLocation": "./.yarn/__virtual__/isomorphic-ws-virtual-0d8d7e6619/0/cache/isomorphic-ws-npm-4.0.1-aa39192848-d7190eadef.zip/node_modules/isomorphic-ws/",
           "packageDependencies": [
-            ["isomorphic-ws", "virtual:0f8193fe2c18d70f22909316967473dfe9d7cab38db7666f7649368bc251f2ec7919db14046f84bccc420d6e81eb8d0b5fed810cf4f28842b35709cd568f2ab1#npm:4.0.1"],
+            ["isomorphic-ws", "virtual:5e558dfbdc3945496020d12ba2d8080b29c3b172d59bd38bc9cb34ba3075b5e6ba6c5d720c3004719fc2a4abede81f164bdbb4a721c143ae39935c07338dc723#npm:4.0.1"],
             ["@types/ws", null],
             ["ws", "virtual:7765e84e7fb7fea1c4ef855afffc7700d0044c00a17f1c9dcffdd00934009c8bb9316d49c5b5039064da229c3d2bc3e0f9c88bdf26c4743cb8019702fcc7b66b#npm:7.5.6"]
           ],
@@ -6431,14 +6453,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["sactivity", [
-        ["npm:2.0.0", {
-          "packageLocation": "./.yarn/cache/sactivity-npm-2.0.0-0f8193fe2c-9b6cf87e61.zip/node_modules/sactivity/",
+        ["npm:2.0.1-beta", {
+          "packageLocation": "./.yarn/cache/sactivity-npm-2.0.1-beta-5e558dfbdc-648b35729e.zip/node_modules/sactivity/",
           "packageDependencies": [
-            ["sactivity", "npm:2.0.0"],
+            ["sactivity", "npm:2.0.1-beta"],
             ["axios", "npm:0.21.4"],
             ["debug", "virtual:438eca98ee9c8d2ac7463f84f071f0e3ceaeb1763886373ebd4c7e6fc9c05dd2b4221427d2757cd00e2cb7048c6a259d824eba20f83f80f9f05aa24fa75eb6ac#npm:4.3.3"],
             ["eventemitter3", "npm:4.0.7"],
-            ["isomorphic-ws", "virtual:0f8193fe2c18d70f22909316967473dfe9d7cab38db7666f7649368bc251f2ec7919db14046f84bccc420d6e81eb8d0b5fed810cf4f28842b35709cd568f2ab1#npm:4.0.1"],
+            ["isomorphic-ws", "virtual:5e558dfbdc3945496020d12ba2d8080b29c3b172d59bd38bc9cb34ba3075b5e6ba6c5d720c3004719fc2a4abede81f164bdbb4a721c143ae39935c07338dc723#npm:4.0.1"],
             ["strict-event-emitter-types", "npm:2.0.0"],
             ["ws", "virtual:7765e84e7fb7fea1c4ef855afffc7700d0044c00a17f1c9dcffdd00934009c8bb9316d49c5b5039064da229c3d2bc3e0f9c88bdf26c4743cb8019702fcc7b66b#npm:7.5.6"]
           ],
