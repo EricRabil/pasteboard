@@ -29,7 +29,7 @@
         "debug": "^4.3.3",
         "dotenv": "^10.0.0",
         "pg": "^8.7.1",
-        "sactivity": "^2.0.0",
+        "sactivity": "^2.0.1-beta",
         "tslib": "latest",
         "typeorm": "^0.2.41"
     },
