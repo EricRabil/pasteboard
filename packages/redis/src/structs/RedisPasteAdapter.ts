@@ -68,7 +68,9 @@ function loadText(path: string): string {
 }
 
 export default class RedisPasteAdapter {
+    // @ts-ignore
     redis: PasteRedis;
+    // @ts-ignore
     #pubsub: RedisClientType<Modules, {}>;
 
     namespace: string;
@@ -89,24 +91,38 @@ export default class RedisPasteAdapter {
         }
     });
 
+    #rebuild: () => void;
     constructor(opts: Options = {
         url: process.env.REDIS_URL
     }, namespace: string = 'redis-pasteboard') {
-        this.redis = createClient({
-            ...opts,
-            scripts: {
-                create_expanded_array: RedisPasteAdapter.create_expanded_array,
-                spublish: RedisPasteAdapter.spublish
-            }
-        });
-
-        this.#pubsub = createClient(opts);
+        this.#rebuild = () => {
+            this.redis = createClient({
+                ...opts,
+                scripts: {
+                    create_expanded_array: RedisPasteAdapter.create_expanded_array,
+                    spublish: RedisPasteAdapter.spublish
+                }
+            });
+    
+            this.#pubsub = createClient(opts);
+        };
+        this.#rebuild();
 
         this.namespace = namespace;
     }
 
+    #setupLoop: ReturnType<typeof setTimeout> | null = null;
     async setup() {
-        await Promise.all([this.redis.connect(), this.#pubsub.connect()]);
+        try {
+            await Promise.all([this.redis.connect(), this.#pubsub.connect()]);
+        } catch (e) {
+            console.warn('failed to connect to redis:', e, 'trying again in 5000ms');
+            if (this.#setupLoop) this.#setupLoop.refresh();
+            else this.#setupLoop = setTimeout(() => {
+                this.#rebuild();
+                this.setup();
+            }, 5000);
+        }
     }
 
     async shutdown() {
