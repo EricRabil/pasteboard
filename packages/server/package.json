@@ -7,6 +7,7 @@
     "private": true,
     "devDependencies": {
         "@types/body-parser": "^1.19.2",
+        "@types/cors": "^2.8.12",
         "@types/debug": "^4.1.7",
         "@types/express": "^4.17.13",
         "@types/express-ws": "^3.0.1",
@@ -25,6 +26,7 @@
         "@pasteboard/core": "^1.0.0",
         "@pasteboard/redis": "^1.0.0",
         "body-parser": "^1.19.1",
+        "cors": "^2.8.5",
         "debug": "^4.3.3",
         "express": "^4.17.2",
         "express-ws": "^5.0.2",

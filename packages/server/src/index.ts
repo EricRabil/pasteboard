@@ -2,6 +2,7 @@ import { PasteRegion } from "@pasteboard/core";
 import Pasteboard from "@pasteboard/redis";
 import express, { Router } from "express";
 import expressWs from "express-ws";
+import cors from "cors";
 import Debug from "debug";
 
 const debug = Debug("pasteboard:server");
@@ -10,6 +11,8 @@ const { app } = expressWs(express());
 const pasteboard = new Pasteboard();
 
 const v1 = Router();
+
+v1.use(cors());
 
 v1.get("/board/*", async (req, res, next) => {
     let path: string = '/' + (<any>req.params)[0];
